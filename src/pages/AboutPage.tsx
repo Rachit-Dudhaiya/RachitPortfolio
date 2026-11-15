@@ -1,46 +1,127 @@
 import React from 'react';
-import { experienceData, techStackCategories, certificationsData, contactDetails } from '../data/projectsData';
-import { TextLink } from '../components/TextLink';
+import { experienceData, contactDetails } from '../data/projectsData';
 
 export const AboutPage: React.FC = () => {
-  return (
-    <div className="pt-8 sm:pt-14 space-y-16 max-w-3xl">
-      {/* Page Heading */}
-      <div>
-        <span className="mono-label text-vermillion font-semibold uppercase tracking-wider block mb-1">
-          Curriculum Vitae & Background
-        </span>
-        <h1 className="text-[34px] sm:text-[46px] font-medium leading-tight text-ink">
-          About Rachit Dudhaiya
-        </h1>
-        <p className="mt-2 text-[17px] text-pencil">
-          Full-Stack & Mobile Developer · B.Tech (IT) at R.K. University · Rajkot, India
-        </p>
-      </div>
+  const whatIDo = [
+    {
+      title: 'Frontend Development',
+      description: 'Building responsive, accessible, and tactile web interfaces with modern React, TypeScript, and Tailwind CSS. Obsessed with sub-second performance, layout stability, and fluid touch interactions.',
+      tools: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'HTML5/CSS3']
+    },
+    {
+      title: 'Web Application Development',
+      description: 'Engineering full-stack web applications featuring end-to-end data pipelines, real-time database synchronisation, authenticated user sessions, and automated cloud deployments.',
+      tools: ['Next.js / React', 'Firebase', 'Supabase', 'REST APIs', 'Vercel']
+    },
+    {
+      title: 'Mobile Application Development',
+      description: 'Developing high-performance cross-platform mobile applications for Android and iOS using Flutter and Dart, with offline persistence and reactive state management.',
+      tools: ['Flutter', 'Dart', 'Android Studio', 'Firebase Mobile', 'Provider']
+    },
+    {
+      title: 'Backend & Database Integration',
+      description: 'Designing relational MySQL schemas, NoSQL document collections, secure role-based access rules, serverless cloud functions, and transactional endpoints.',
+      tools: ['MySQL', 'Firebase Firestore', 'Supabase PostgreSQL', 'Express.js']
+    },
+    {
+      title: 'UI/UX Implementation',
+      description: 'Bridging design and code by translating Figma component systems into pixel-perfect production software with thoughtful micro-interactions, responsive grids, and design tokens.',
+      tools: ['Figma', 'Design Systems', 'CSS Grid', 'Micro-interactions']
+    }
+  ];
 
-      {/* Portrait & Profile Bio */}
-      <section className="space-y-8">
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 items-start">
-          {/* Framed Photo with Tactile Background */}
-          <div className="sm:col-span-5">
-            <div className="relative group max-w-[280px]">
-              {/* Decorative washi tape */}
-              <div className="absolute -top-3 left-8 w-24 h-6 bg-[#ecdcc6] border border-[#d2bf9f] opacity-85 rotate-[-3deg] shadow-xs z-10 pointer-events-none" />
+  const techGroups = [
+    {
+      category: 'Languages',
+      items: ['Python', 'Java', 'JavaScript', 'TypeScript', 'PHP', 'Dart', 'C', 'C++']
+    },
+    {
+      category: 'Frontend',
+      items: ['React', 'HTML5', 'CSS3', 'Tailwind CSS', 'Vite', 'Three.js']
+    },
+    {
+      category: 'Backend & Database',
+      items: ['Firebase', 'MySQL', 'Supabase', 'Express.js', 'PostgreSQL']
+    },
+    {
+      category: 'Mobile',
+      items: ['Flutter', 'Android SDK', 'Dart', 'Mobile UI Components']
+    },
+    {
+      category: 'Tools & Platforms',
+      items: ['Git', 'GitHub', 'Vercel', 'Figma', 'VS Code', 'Android Studio']
+    }
+  ];
+
+  const philosophyPillars = [
+    {
+      number: '01',
+      title: 'Building Practical Solutions',
+      text: 'Software is a tool to solve human challenges. I focus on creating real utility—such as eliminating paper registers with a dedicated mobile attendance app, or helping homebuyers filter properties with zero latency.'
+    },
+    {
+      number: '02',
+      title: 'Writing Maintainable Code',
+      text: 'Long-term maintainability beats short-term shortcuts. I believe in modular code, clear TypeScript typing, deterministic state management, and leaving every repository cleaner than I found it.'
+    },
+    {
+      number: '03',
+      title: 'Continuous Learning',
+      text: 'Technology evolves rapidly. I maintain a daily habit of building, testing modern frameworks, understanding systems fundamentals, and exploring software architecture from first principles.'
+    },
+    {
+      number: '04',
+      title: 'Solving Real-World Problems',
+      text: 'The best projects emerge from genuine needs. I build for small businesses, schools, and clients with deep respect for accessibility, performance over slow networks, and intuitive usability.'
+    }
+  ];
+
+  return (
+    <div className="pt-8 sm:pt-14 space-y-24 sm:space-y-32 max-w-4xl mx-auto">
+      {/* =========================================================================
+          MAIN INTRODUCTION & HEADLINE
+      ========================================================================= */}
+      <section className="space-y-4 max-w-3xl">
+        <span className="mono-label text-vermillion font-bold uppercase tracking-wider block">
+          // BACKGROUND & PHILOSOPHY
+        </span>
+        <h1 className="text-[36px] sm:text-[50px] font-semibold leading-tight text-ink">
+          Building ideas into meaningful digital experiences.
+        </h1>
+        <p className="font-serif italic text-[20px] sm:text-[23px] text-pencil leading-relaxed">
+          I am a developer interested in web development, application engineering, system design, and cloud technologies—based in Rajkot, Gujarat.
+        </p>
+      </section>
+
+      {/* =========================================================================
+          CHAPTER 01: WHO I AM (Personal Snapshot & Framed Portrait)
+      ========================================================================= */}
+      <section className="border-t border-rule pt-16 sm:pt-20 space-y-8">
+        <div className="flex items-center gap-2">
+          <span className="mono-label text-vermillion font-bold">// 01. WHO I AM</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+          {/* Framed Portrait with Washi Tape */}
+          <div className="md:col-span-5 flex justify-center md:justify-start">
+            <div className="relative group max-w-[280px] w-full">
+              {/* Washi tape accent */}
+              <div className="absolute -top-3 left-6 w-28 h-6 bg-[#ecdcc6] border border-[#d2bf9f] opacity-85 rotate-[-2.5deg] shadow-xs z-10 pointer-events-none" />
               
-              <div className="border-2 border-paper-deep bg-[#fcfaf5] p-3 shadow-md space-y-3">
+              <div className="border-2 border-paper-deep bg-paper p-3 shadow-md space-y-3">
                 <div className="aspect-[3/4] overflow-hidden border border-rule bg-paper-deep">
                   <img
                     src="/assets/rachit-profile.jpg"
-                    alt="Rachit Dudhaiya in black formal suit and glasses"
-                    className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-300"
+                    alt="Rachit Dudhaiya"
+                    className="w-full h-full object-cover object-top filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 
-                <div className="text-center pt-1 border-t border-rule">
-                  <p className="font-sans font-medium text-ink text-sm">
+                <div className="text-center pt-1 border-t border-rule font-mono text-xs">
+                  <p className="font-sans font-semibold text-ink text-sm">
                     {contactDetails.name}
                   </p>
-                  <p className="font-mono text-[11px] text-pencil">
+                  <p className="text-pencil text-[11px] mt-0.5">
                     {contactDetails.location}
                   </p>
                 </div>
@@ -48,21 +129,19 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Profile Statement */}
-          <div className="sm:col-span-7 space-y-4 text-[16px] leading-relaxed text-ink">
-            <div className="border-l-2 border-vermillion pl-4 py-1 italic font-serif text-[18px] text-ink leading-snug">
-              "Passionate about building innovative, user-friendly, and scalable software solutions that solve real-world problems."
-            </div>
-
+          {/* Bio Content */}
+          <div className="md:col-span-7 space-y-4 text-[17px] leading-relaxed text-ink">
             <p>
-              I am a motivated and detail-oriented developer with 3+ years of hands-on experience in web and mobile application development. Seeking a Software Developer role to leverage technical skills, learn modern frameworks, and deliver impactful software.
+              Hello! I'm <strong>Rachit Dudhaiya</strong>, a developer currently pursuing my B.Tech in Information Technology at R.K. University in Rajkot, Gujarat (CGPA: 8.10 / 10.0).
+            </p>
+            <p>
+              Over the last 3+ years, I have built real-world software products ranging from end-to-end real estate portals and student information systems to cross-platform Flutter applications.
+            </p>
+            <p>
+              My approach balances aesthetic design with rigorous engineering: fast initial loads, clear database models, accessible markup, and smooth interactive details that make software pleasant and dependable to use.
             </p>
 
-            <p>
-              My background covers building responsive client-side portals (React, HTML/CSS, JavaScript), robust backend systems (Firebase, Supabase, MySQL, Express.js), and cross-platform mobile apps (Flutter & Dart).
-            </p>
-
-            <div className="pt-2 flex flex-wrap gap-4 text-sm font-mono">
+            <div className="pt-2 flex flex-wrap gap-3 font-mono text-xs">
               <a
                 href={contactDetails.github}
                 target="_blank"
@@ -75,206 +154,233 @@ export const AboutPage: React.FC = () => {
                 href={contactDetails.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline text-xs py-2 px-3"
+                className="inline-flex items-center gap-1.5 px-3 py-2 border border-ink text-ink hover:bg-paper-deep transition-colors"
               >
-                LinkedIn Profile ↗
+                LinkedIn ↗
+              </a>
+              <a
+                href="/assets/Rachit_Dudhaiya_Resume.pdf"
+                download="Rachit_Dudhaiya_Resume.pdf"
+                className="inline-flex items-center gap-1.5 px-3 py-2 border border-rule text-pencil hover:text-ink hover:border-ink transition-colors"
+              >
+                Download Resume (PDF) ↗
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Quick Info Card */}
-      <section className="p-6 bg-paper-deep border border-rule rounded-sm grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+      {/* =========================================================================
+          CHAPTER 02: MY JOURNEY (Visual Milestone Timeline)
+      ========================================================================= */}
+      <section className="border-t border-rule pt-16 sm:pt-20 space-y-8">
         <div>
-          <span className="mono-label block mb-1">Direct Email</span>
-          <a href={`mailto:${contactDetails.email}`} className="text-ink font-medium hover:text-vermillion underline decoration-1">
-            {contactDetails.email}
-          </a>
-        </div>
-        <div>
-          <span className="mono-label block mb-1">Direct Phone</span>
-          <a href={`tel:${contactDetails.phone}`} className="text-ink font-medium hover:text-vermillion">
-            {contactDetails.phone}
-          </a>
-        </div>
-        <div>
-          <span className="mono-label block mb-1">Location</span>
-          <span className="text-ink font-medium">
-            Rajkot 360-004, Gujarat
+          <span className="mono-label text-vermillion font-bold block mb-1">
+            // 02. MY JOURNEY
           </span>
-        </div>
-      </section>
-
-      {/* Technical Stack (Exact user stack categorized) */}
-      <section className="space-y-6 border-t border-rule pt-12">
-        <div className="flex items-baseline justify-between">
-          <h2 className="text-[22px] font-medium text-ink">
-            Technical Stack & Tooling
+          <h2 className="text-[28px] sm:text-[34px] font-semibold text-ink">
+            Milestones & Experience Timeline
           </h2>
-          <span className="mono-label text-pencil">Categorized Inventory</span>
+          <p className="text-pencil text-sm mt-1">
+            Education and independent engineering milestones that shaped my skills.
+          </p>
         </div>
 
-        <div className="space-y-4 text-[15px] leading-relaxed">
-          <div className="p-4 bg-paper border border-rule">
-            <span className="mono-label text-vermillion block mb-1.5 font-bold">Coding Languages</span>
-            <p className="text-ink font-medium">
-              {techStackCategories.codingLanguages.join(' · ')}
-            </p>
-          </div>
+        <div className="relative border-l-2 border-rule ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-10">
+          {experienceData.map((exp, idx) => (
+            <div key={idx} className="relative group">
+              {/* Timeline dot */}
+              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-paper border-2 border-vermillion group-hover:scale-125 transition-transform" />
 
-          <div className="p-4 bg-paper border border-rule">
-            <span className="mono-label text-blueprint block mb-1.5 font-bold">Backend & Databases</span>
-            <p className="text-ink font-medium">
-              {techStackCategories.backend.join(' · ')}
-            </p>
-          </div>
+              <div className="p-5 sm:p-6 bg-paper border border-rule hover:border-ink transition-colors space-y-2">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                  <h3 className="font-sans font-semibold text-lg text-ink">
+                    {exp.role}
+                  </h3>
+                  <span className="font-mono text-xs font-bold text-vermillion">
+                    {exp.years}
+                  </span>
+                </div>
 
-          <div className="p-4 bg-paper border border-rule">
-            <span className="mono-label text-ink block mb-1.5 font-bold">Frameworks & Libraries</span>
-            <p className="text-ink font-medium">
-              {techStackCategories.frameworksAndLibraries.join(' · ')}
-            </p>
-          </div>
+                <p className="font-mono text-xs text-pencil">
+                  {exp.company}
+                </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 bg-paper border border-rule">
-              <span className="mono-label text-pencil block mb-1.5 font-bold">Hosting & Platforms</span>
-              <p className="text-ink font-medium">
-                {techStackCategories.hostingAndDevOps.join(' · ')}
-              </p>
-            </div>
-
-            <div className="p-4 bg-paper border border-rule">
-              <span className="mono-label text-pencil block mb-1.5 font-bold">Tools & Environments</span>
-              <p className="text-ink font-medium">
-                {techStackCategories.toolsAndIDEs.join(' · ')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Education Timeline */}
-      <section className="space-y-6 border-t border-rule pt-12">
-        <h2 className="text-[22px] font-medium text-ink">
-          Education
-        </h2>
-
-        <div className="space-y-6 border-l-2 border-rule pl-6 ml-2">
-          {/* B.Tech */}
-          <div className="relative">
-            <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-vermillion border-2 border-paper" />
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 className="text-[18px] font-medium text-ink">
-                B.Tech in Information & Technology
-              </h3>
-              <span className="mono-label text-vermillion font-bold">2022 — 2026 (Expected)</span>
-            </div>
-            <p className="text-pencil text-[15px] mt-0.5">
-              R.K. University, Rajkot · <strong>CGPA: 8.10 / 10.0</strong>
-            </p>
-            <p className="text-sm text-ink-soft mt-1">
-              Core study in Object-Oriented Software Design, Data Structures, Mobile App Development, Relational Databases, and Network Architecture.
-            </p>
-          </div>
-
-          {/* 12th GSHSEB */}
-          <div className="relative">
-            <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-pencil border-2 border-paper" />
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 className="text-[17px] font-medium text-ink">
-                12th GSHSEB (Higher Secondary Science)
-              </h3>
-              <span className="mono-label text-pencil">March 2024</span>
-            </div>
-            <p className="text-pencil text-[15px] mt-0.5">
-              Tapovan School, Rajkot · <strong>Score: 61.69%</strong>
-            </p>
-          </div>
-
-          {/* 10th GSHSEB */}
-          <div className="relative">
-            <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-pencil border-2 border-paper" />
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 className="text-[17px] font-medium text-ink">
-                10th GSHSEB (Secondary School)
-              </h3>
-              <span className="mono-label text-pencil">March 2022</span>
-            </div>
-            <p className="text-pencil text-[15px] mt-0.5">
-              Tapovan School, Rajkot · <strong>Score: 71.16%</strong>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications & Qualifications */}
-      <section className="space-y-4 border-t border-rule pt-12">
-        <h2 className="text-[22px] font-medium text-ink">
-          Certifications & Qualifications
-        </h2>
-
-        <div className="border border-rule divide-y divide-rule bg-paper text-[15px]">
-          {certificationsData.map((cert, idx) => (
-            <div key={idx} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <p className="font-medium text-ink">{cert.title}</p>
-                <p className="text-xs font-mono text-pencil">{cert.issuer}</p>
+                {exp.details && (
+                  <p className="text-sm text-ink leading-relaxed pt-1">
+                    {exp.details}
+                  </p>
+                )}
               </div>
-              <span className="inline-block border border-rule px-2.5 py-1 text-xs font-mono text-pencil rounded-xs self-start sm:self-auto">
-                {cert.type}
-              </span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Soft Skills */}
-      <section className="space-y-4 border-t border-rule pt-12">
-        <h2 className="text-[22px] font-medium text-ink">
-          Soft Skills & Core Strengths
-        </h2>
-        <div className="flex flex-wrap gap-2 text-[14px]">
-          {['Teamwork & Collaboration', 'Time Management', 'Leadership', 'Effective Communication', 'Creative Problem Solver', 'Quick Adapter to New Frameworks'].map((skill, i) => (
-            <span key={i} className="px-3 py-1.5 bg-paper border border-rule text-ink rounded-xs font-medium">
-              {skill}
-            </span>
+      {/* =========================================================================
+          CHAPTER 03: WHAT I DO (5 Core Capabilities)
+      ========================================================================= */}
+      <section className="border-t border-rule pt-16 sm:pt-20 space-y-8">
+        <div>
+          <span className="mono-label text-vermillion font-bold block mb-1">
+            // 03. CORE CAPABILITIES
+          </span>
+          <h2 className="text-[28px] sm:text-[34px] font-semibold text-ink">
+            What I Do
+          </h2>
+          <p className="text-pencil text-sm mt-1">
+            Specialized engineering services I provide across the development lifecycle.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {whatIDo.map((item, idx) => (
+            <div
+              key={idx}
+              className={`p-6 bg-paper border border-rule hover:border-ink transition-colors space-y-3 ${
+                idx === whatIDo.length - 1 ? 'md:col-span-2' : ''
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-vermillion">
+                  0{idx + 1}
+                </span>
+                <span className="font-mono text-[10px] uppercase text-pencil">
+                  CAPABILITY
+                </span>
+              </div>
+
+              <h3 className="font-sans font-semibold text-xl text-ink">
+                {item.title}
+              </h3>
+
+              <p className="text-sm text-ink leading-relaxed">
+                {item.description}
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-1.5">
+                {item.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-2 py-0.5 bg-paper-deep border border-rule font-mono text-[11px] text-pencil"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Academic References */}
-      <section className="space-y-4 border-t border-rule pt-12">
-        <h2 className="text-[22px] font-medium text-ink">
-          Academic References
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[14px]">
-          <div className="p-4 bg-paper border border-rule">
-            <p className="font-semibold text-ink">Dr. Vishal Doshi</p>
-            <p className="text-pencil text-xs font-mono">Associate Professor · R.K. University</p>
-            <p className="mt-2 text-ink">Email: <a href="mailto:po@rku.ac.in" className="underline">po@rku.ac.in</a></p>
-            <p className="text-ink">Phone: +91 93289 03508</p>
-          </div>
+      {/* =========================================================================
+          CHAPTER 04: MY TECH STACK (Categorized Without Fake Percentages)
+      ========================================================================= */}
+      <section className="border-t border-rule pt-16 sm:pt-20 space-y-8">
+        <div>
+          <span className="mono-label text-vermillion font-bold block mb-1">
+            // 04. TECHNICAL SKILLS
+          </span>
+          <h2 className="text-[28px] sm:text-[34px] font-semibold text-ink">
+            My Tech Stack
+          </h2>
+          <p className="text-pencil text-sm mt-1">
+            Verified technologies, languages, and tools actively used in project repositories.
+          </p>
+        </div>
 
-          <div className="p-4 bg-paper border border-rule">
-            <p className="font-semibold text-ink">Osho Shah</p>
-            <p className="text-pencil text-xs font-mono">Associate Professor · R.K. University</p>
-            <p className="mt-2 text-ink">Email: <a href="mailto:tpo2@rku.ac.in" className="underline">tpo2@rku.ac.in</a></p>
-            <p className="text-ink">Phone: +91 94092 74800</p>
-          </div>
+        <div className="space-y-6">
+          {techGroups.map((group, idx) => (
+            <div
+              key={idx}
+              className="p-5 sm:p-6 bg-paper border border-rule flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+            >
+              <div className="sm:w-1/3">
+                <span className="font-mono text-xs font-bold text-vermillion block mb-0.5">
+                  GROUP 0{idx + 1}
+                </span>
+                <h3 className="font-sans font-semibold text-lg text-ink">
+                  {group.category}
+                </h3>
+              </div>
+
+              <div className="sm:w-2/3 flex flex-wrap gap-2">
+                {group.items.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-paper-deep border border-rule text-ink font-mono text-xs font-medium hover:border-ink transition-colors shadow-2xs"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="border-t border-rule pt-8 text-[15px]">
-        <p className="text-pencil">
-          Interested in discussing a software development role, internship, or collaborative project?{' '}
-          <TextLink href={`mailto:${contactDetails.email}`} external>
-            Send an email to {contactDetails.email}
-          </TextLink>
-          .
-        </p>
+      {/* =========================================================================
+          CHAPTER 05: MY PHILOSOPHY
+      ========================================================================= */}
+      <section className="border-t border-rule pt-16 sm:pt-20 space-y-8">
+        <div>
+          <span className="mono-label text-vermillion font-bold block mb-1">
+            // 05. PRINCIPLES & VALUES
+          </span>
+          <h2 className="text-[28px] sm:text-[34px] font-semibold text-ink">
+            My Development Philosophy
+          </h2>
+          <p className="text-pencil text-sm mt-1">
+            Four core values that define my everyday craft and collaboration.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {philosophyPillars.map((pillar) => (
+            <div
+              key={pillar.number}
+              className="p-6 bg-paper border border-rule space-y-2 hover:border-ink transition-colors"
+            >
+              <span className="font-mono text-xs font-bold text-vermillion">
+                {pillar.number}
+              </span>
+              <h3 className="font-sans font-semibold text-lg text-ink">
+                {pillar.title}
+              </h3>
+              <p className="text-sm text-pencil leading-relaxed pt-1">
+                {pillar.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Invitation CTA */}
+      <section className="border-t border-rule pt-16 sm:pt-20">
+        <div className="p-8 sm:p-10 bg-paper-deep border border-rule text-center space-y-4">
+          <h2 className="text-[26px] sm:text-[32px] font-semibold text-ink">
+            Interested in working together or reviewing my code?
+          </h2>
+          <p className="text-pencil text-sm max-w-xl mx-auto">
+            I am always open to discussing new opportunities, full-stack projects, or developer roles.
+          </p>
+          <div className="pt-2 flex justify-center gap-4">
+            <a
+              href="/contact"
+              className="btn-solid text-xs py-2.5 px-5"
+            >
+              Send an Inquiry →
+            </a>
+            <a
+              href={contactDetails.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 border border-ink text-ink font-mono text-xs font-bold hover:bg-paper transition-colors"
+            >
+              Inspect GitHub Repositories ↗
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );
