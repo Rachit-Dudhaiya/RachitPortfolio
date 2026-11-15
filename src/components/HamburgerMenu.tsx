@@ -11,7 +11,7 @@ export interface HamburgerMenuProps {
 export const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
   isOpen,
   onToggle,
-  barColor = 'var(--ink, #000000ff)',
+  barColor = '#111111',
   className = '',
 }) => {
   return (
@@ -46,32 +46,36 @@ const StyledWrapper = styled.div<{ $barColor: string }>`
 
   .toggle {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 6.5px;
     transition-duration: 0.3s;
     user-select: none;
   }
 
   .bars {
     width: 100%;
-    height: 4px;
-    background-color: ${(props) => props.$barColor};
-    border-radius: 5px;
+    height: 2.5px;
+    background-color: ${(props) => props.$barColor || '#111111'};
+    border-radius: 4px;
     transition-duration: 0.3s;
   }
 
   .toggle:hover .bars {
-    background-color: var(--vermillion, #000000ff);
+    background-color: #000000;
+  }
+
+  #hamburger-checkbox:checked + .toggle .bars {
+    background-color: #000000;
   }
 
   #hamburger-checkbox:checked + .toggle #bar2 {
-    transform: translateY(14px) rotate(60deg);
+    transform: translateY(9px) rotate(60deg);
     margin-left: 0;
     transform-origin: right;
     transition-duration: 0.3s;
@@ -79,7 +83,7 @@ const StyledWrapper = styled.div<{ $barColor: string }>`
   }
 
   #hamburger-checkbox:checked + .toggle #bar1 {
-    transform: translateY(28px) rotate(-60deg);
+    transform: translateY(18px) rotate(-60deg);
     transition-duration: 0.3s;
     transform-origin: left;
     z-index: 1;

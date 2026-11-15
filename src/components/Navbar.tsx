@@ -26,12 +26,12 @@ export const Navbar: React.FC = () => {
         <Link
           to="/"
           onClick={() => setMobileMenuOpen(false)}
-          className="font-sans font-medium text-[17px] text-ink no-underline hover:text-vermillion transition-colors duration-micro"
+          className="font-sans font-medium text-[17px] text-ink no-underline hover:text-black transition-colors duration-micro"
         >
           Rachit Dudhaiya
         </Link>
 
-        {/* Desktop Links (No pills, no numbers) */}
+        {/* Desktop Links */}
         <nav aria-label="Main Navigation" className="hidden sm:flex items-center gap-6">
           {navLinks.map((item, idx) => (
             <React.Fragment key={item.href}>
@@ -39,8 +39,8 @@ export const Navbar: React.FC = () => {
                 to={item.href}
                 className={`text-[15px] font-medium no-underline transition-colors duration-micro ${
                   isActive(item.href)
-                    ? 'text-vermillion underline underline-offset-4 decoration-1 font-semibold'
-                    : 'text-pencil hover:text-ink'
+                    ? 'text-black underline underline-offset-4 decoration-2 font-bold'
+                    : 'text-pencil hover:text-black'
                 }`}
               >
                 {item.label}
@@ -52,11 +52,12 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Animated Hamburger Menu Toggle */}
+        {/* Animated Hamburger Menu Toggle (Compact & Black) */}
         <div className="sm:hidden flex items-center">
           <HamburgerMenu
             isOpen={mobileMenuOpen}
             onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+            barColor="#111111"
           />
         </div>
       </div>
@@ -71,8 +72,8 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
               className={`text-[17px] font-medium no-underline py-1 transition-colors duration-micro ${
                 isActive(item.href)
-                  ? 'text-vermillion underline underline-offset-4 decoration-1 font-semibold'
-                  : 'text-ink hover:text-vermillion'
+                  ? 'text-black underline underline-offset-4 decoration-2 font-bold'
+                  : 'text-ink hover:text-black'
               }`}
             >
               {item.label}
@@ -83,3 +84,5 @@ export const Navbar: React.FC = () => {
     </header>
   );
 };
+
+export default Navbar;
