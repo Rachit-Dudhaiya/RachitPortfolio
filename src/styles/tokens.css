@@ -1,0 +1,15 @@
+:root {
+  --paper: #F3EEE3;
+  --paper-deep: #E8E1D2;
+  --desk: #DCD3C2;
+  --ink: #1B1A16;
+  --pencil: #6E6B61;
+  --rule: #D5CDBC;
+  --vermillion: #C8452D;
+  --blueprint: #2B4C8C;
+
+  --font-sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
