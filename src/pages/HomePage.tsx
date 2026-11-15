@@ -64,12 +64,6 @@ export const HomePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column (7 cols): Hero Typography & Actions */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Availability Indicator */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-paper-deep border border-rule text-xs font-mono rounded-xs">
-              <span className="w-2 h-2 rounded-full bg-vermillion animate-pulse" />
-              <span className="text-pencil">Available for Software Developer roles & contracts</span>
-            </div>
-
             {/* Main Typographic Headline */}
             <div className="space-y-2">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-pencil block">
